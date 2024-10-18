@@ -1,0 +1,1 @@
+ /Users/mac/Desktop/STRATHMORE\ PROJECT/MyStrath/mystrath/.dart_tool/flutter_build/ba0424beb0096e918ed2c502ba045d00/native_assets.yaml: 
