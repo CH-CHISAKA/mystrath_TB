@@ -1,12 +1,14 @@
 // ignore_for_file: library_private_types_in_public_api
 
 import 'package:flutter/material.dart';
+import 'package:mystrath/views/home_screen/mian_home_screen.dart';
 import 'package:mystrath/views/themes/themes.dart';
 import 'package:mystrath/views/themes/theme_toggle.dart';
 import 'package:provider/provider.dart';
 
 class HamburgerMenu extends StatefulWidget {
-  const HamburgerMenu({super.key});
+  final MainHomeScreenState parentState;
+  const HamburgerMenu({required this.parentState, super.key});
 
   @override
   _HamburgerMenuState createState() => _HamburgerMenuState();
@@ -15,9 +17,42 @@ class HamburgerMenu extends StatefulWidget {
 class _HamburgerMenuState extends State<HamburgerMenu> {
   String _selectedItem = "";
 
-  void _onMenuItemTap(String title) {
+  @override
+  void initState() {
+    super.initState();
+    _selectedItem = _getMenuItemFromIndex(widget.parentState.selectedIndex);
+  }
+
+  String _getMenuItemFromIndex(int index) {
+    switch (index) {
+      case 0:
+        return 'Home';
+      case 1:
+        return 'Search';
+      case 2:
+        return 'Notifications';
+      case 4:
+        return 'History';
+      case 5:
+        return 'Help';
+      case 6:
+        return 'About';
+      case 7:
+        return 'Log Out';
+      default:
+        return '';
+    }
+  }
+
+  void _onMenuItemTap(String title, int index) {
     setState(() {
       _selectedItem = title;
+      // Switch to appropriate page
+      widget.parentState.setState(() {
+        widget.parentState.selectedIndex = index;
+      });
+      // Close the hamburger menu
+      Navigator.of(context).pop();
     });
   }
 
@@ -86,35 +121,36 @@ class _HamburgerMenuState extends State<HamburgerMenu> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               const SizedBox(height: 5),
-              ListTile(
+                ListTile(
                 leading: const Padding(
                   padding: EdgeInsets.only(left: 0.1),
                   child: CircleAvatar(
-                    backgroundColor: Color.fromARGB(255, 105, 105, 105),
-                    radius: 40,
-                    child: Icon(
-                      Icons.person,
-                      color: Colors.white,
-                      size: 40,
-                    ),
+                  backgroundColor: Color.fromARGB(255, 105, 105, 105),
+                  radius: 40,
+                  child: Icon(
+                    Icons.person,
+                    color: Colors.white,
+                    size: 40,
+                  ),
                   ),
                 ),
                 title: Text(
                   'The Boys', // Minor change
                   style: TextStyle(
-                    color: textColor,
-                    fontSize: 18,
-                    fontWeight: FontWeight.bold,
+                  color: textColor,
+                  fontSize: 18,
+                  fontWeight: FontWeight.bold,
                   ),
                 ),
                 subtitle: Text(
                   "the.boys@strathmore.edu",
                   style: TextStyle(
-                    color: textColor.withOpacity(0.7),
-                    fontSize: 13,
+                  color: textColor.withOpacity(0.7),
+                  fontSize: 13,
                   ),
                 ),
-              ),
+                onTap: () => _onMenuItemTap('The Boys', 3),
+                ),
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 10.0),
                 child: Divider(
@@ -132,40 +168,39 @@ class _HamburgerMenuState extends State<HamburgerMenu> {
                         _buildAnimatedListTile(
                           'Home',
                           Icons.home,
-                          () => _onMenuItemTap('Home'),
+                          () => _onMenuItemTap('Home', 0),
                           textColor,
                           iconColor,
                         ),
                         _buildAnimatedListTile(
                           'Search',
                           Icons.search,
-                          () => _onMenuItemTap('Search'),
+                          () => _onMenuItemTap('Search', 1),
                           textColor,
                           iconColor,
                         ),
                         _buildAnimatedListTile(
                           'Notifications',
                           Icons.notifications,
-                          () => _onMenuItemTap('Notifications'),
+                          () => _onMenuItemTap('Notifications', 2),
                           textColor,
                           iconColor,
                         ),
                         _buildAnimatedListTile(
                           'History',
                           Icons.history,
-                          () => _onMenuItemTap('History'),
+                          () => _onMenuItemTap('History', 4),
                           textColor,
                           iconColor,
                         ),
                         _buildAnimatedListTile(
                           'Help',
                           Icons.help,
-                          () => _onMenuItemTap('Help'),
+                          () => _onMenuItemTap('Help', 5),
                           textColor,
                           iconColor,
                         ),
                         const SizedBox(height: 10),
-
                         const Divider(),
                         ListTile(
                           leading: const Icon(Icons.brightness_6),
@@ -177,15 +212,14 @@ class _HamburgerMenuState extends State<HamburgerMenu> {
                         _buildAnimatedListTile(
                           'About',
                           Icons.info,
-                          () => _onMenuItemTap('About'),
+                          () => _onMenuItemTap('About', 6),
                           textColor,
                           iconColor,
                         ),
-
                         _buildAnimatedListTile(
                           'Log Out',
                           Icons.logout,
-                          () => _onMenuItemTap('Log Out'),
+                          () => _onMenuItemTap('Log Out', 0),
                           textColor,
                           iconColor,
                         ),
