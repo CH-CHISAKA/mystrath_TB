@@ -1,0 +1,86 @@
+# Flutter/Dart related
+.dart_tool/
+.flutter-plugins
+.flutter-plugins-dependencies
+.packages
+.pub-cache/
+build/
+coverage/
+
+# iOS related
+ios/Flutter/.last_build_id
+ios/Pods/
+ios/.symlinks/
+ios/Flutter/App.framework
+ios/Flutter/Flutter.framework
+ios/Flutter/Flutter.podspec
+ios/ServiceDefinitions.json
+ios/Runner.xcworkspace/
+ios/Runner.xcodeproj/project.xcworkspace/
+ios/Runner.xcodeproj/xcuserdata/
+ios/Runner.xcodeproj/project.xcworkspace/xcuserdata/
+ios/Flutter/Generated.xcconfig
+ios/Flutter/Generated.xcconfig.debug
+ios/Flutter/Generated.xcconfig.release
+ios/Flutter/Generated.xcconfig.profile
+ios/Flutter/Generated.xcconfig.debug.xcconfig
+ios/Flutter/Generated.xcconfig.release.xcconfig
+ios/Flutter/Generated.xcconfig.profile.xcconfig
+
+# Android related
+android/.gradle/
+android/app/build/
+android/local.properties
+android/.idea/
+android/.vscode/
+android/gradle/
+android/gradlew
+android/gradlew.bat
+android/app/src/debug/
+android/app/src/profile/
+android/app/src/main/kotlin/
+android/app/src/main/java/
+android/app/src/main/res/
+android/app/src/main/assets/
+android/app/src/main/AndroidManifest.xml
+android/app/src/main/kotlin/
+android/app/src/main/java/
+android/app/src/main/res/
+android/app/src/main/assets/
+android/app/src/main/AndroidManifest.xml
+android/app/src/main/kotlin/
+android/app/src/main/java/
+android/app/src/main/res/
+android/app/src/main/assets/
+android/app/src/main/AndroidManifest.xml
+
+# macOS related
+macos/Flutter/ephemeral/
+macos/Flutter/Flutter.podspec
+macos/Flutter/GeneratedPluginRegistrant.swift
+macos/Flutter/Generated.xcconfig
+macos/Flutter/Generated.xcconfig.debug
+macos/Flutter/Generated.xcconfig.release
+macos/Flutter/Generated.xcconfig.profile
+macos/Flutter/Generated.xcconfig.debug.xcconfig
+macos/Flutter/Generated.xcconfig.release.xcconfig
+macos/Flutter/Generated.xcconfig.profile.xcconfig
+
+# Linux related
+linux/flutter/ephemeral/
+
+# Windows related
+windows/flutter/ephemeral/
+
+# Web related
+web/.dart_tool/
+
+# VS Code related
+.vscode/
+
+# IntelliJ related
+.idea/
+*.iml
+
+# Miscellaneous
+.DS_Store
