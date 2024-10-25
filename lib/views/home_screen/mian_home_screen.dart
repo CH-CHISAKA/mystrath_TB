@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:mystrath/views/home_screen/components/banner_widget_carousel/banner_widget_carousel.dart';
+import 'package:mystrath/views/home_screen/components/nav_bar/bottom_navigation_bar.dart';
 import 'package:mystrath/views/themes/theme_toggle.dart';
 import 'package:provider/provider.dart';
 import 'package:mystrath/views/home_screen/components/hamburger_menu/hamburgermenu.dart';
@@ -10,20 +11,31 @@ class MainHomeScreen extends StatefulWidget {
   const MainHomeScreen({super.key});
 
   @override
-  State<MainHomeScreen> createState() => _MainHomeScreenState();
+  State<MainHomeScreen> createState() => MainHomeScreenState();
 }
 
-class _MainHomeScreenState extends State<MainHomeScreen> {
-  int _selectedIndex = 0;
+class MainHomeScreenState extends State<MainHomeScreen> {
+  int selectedIndex = 0;
 
   final List<Widget> _screens = [
     const Center(child: Text('Home Screen')),
     const SearchScreen(),
     const NotificationScreen(),
     const Center(child: Text('Profile Screen')),
+    const Center(child: Text('History Screen')),
+    const Center(child: Text('Help Screen')),
+    const Center(child: Text('About Screen')),
   ];
 
+  late BottomNavigation bottomNavigation;
+
   final GlobalKey<ScaffoldState> scaffoldKey = GlobalKey<ScaffoldState>();
+
+  @override
+  void initState() {
+    super.initState();
+    bottomNavigation = BottomNavigation(parentState: this);
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -35,17 +47,21 @@ class _MainHomeScreenState extends State<MainHomeScreen> {
     return Scaffold(
       key: scaffoldKey,
       appBar: _buildAppBar(),
-      drawer: const Drawer(
-        child: HamburgerMenu(),
+      drawer: Drawer(
+        child: HamburgerMenu(
+          parentState: this,
+        ),
       ),
       backgroundColor: backgroundColor,
       body: Column(
         children: [
-          const BannerWidgetCarousel(),
-          Expanded(child: _screens[_selectedIndex]), // Dynamically switch the screens
+          //const BannerWidgetCarousel(),
+          Expanded(
+            child: _screens[selectedIndex],
+          ) // Dynamically switch the screens
         ],
       ),
-      bottomNavigationBar: _buildBottomNavigationBar(),
+      bottomNavigationBar: bottomNavigation,
     );
   }
 
@@ -80,42 +96,6 @@ class _MainHomeScreenState extends State<MainHomeScreen> {
           );
         },
       ),
-    );
-  }
-
-  BottomNavigationBar _buildBottomNavigationBar() {
-    return BottomNavigationBar(
-      backgroundColor: Theme.of(context).primaryColor,
-      selectedItemColor: Colors.white,
-      unselectedItemColor: Colors.grey[300],
-      currentIndex: _selectedIndex,
-      onTap: (index) {
-        setState(() {
-          _selectedIndex = index;
-        });
-      },
-      items: const [
-        BottomNavigationBarItem(
-          icon: Icon(Icons.home),
-          label: 'Home',
-          backgroundColor: Color(0xFF17203A),
-        ),
-        BottomNavigationBarItem(
-          icon: Icon(Icons.search),
-          label: 'Search',
-          backgroundColor: Color(0xFF17203A),
-        ),
-        BottomNavigationBarItem(
-          icon: Icon(Icons.notifications),
-          label: 'Notifications',
-          backgroundColor: Color(0xFF17203A),
-        ),
-        BottomNavigationBarItem(
-          icon: Icon(Icons.person),
-          label: 'Profile',
-          backgroundColor: Color(0xFF17203A),
-        ),
-      ],
     );
   }
 }
