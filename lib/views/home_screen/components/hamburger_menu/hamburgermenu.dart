@@ -1,7 +1,7 @@
 // ignore_for_file: library_private_types_in_public_api
 
 import 'package:flutter/material.dart';
-import 'package:mystrath/views/home_screen/main_home_screen.dart';
+import 'package:mystrath/views/home_screen/mian_home_screen.dart';
 import 'package:mystrath/views/themes/themes.dart';
 import 'package:mystrath/views/themes/theme_toggle.dart';
 import 'package:provider/provider.dart';
@@ -135,7 +135,7 @@ class _HamburgerMenuState extends State<HamburgerMenu> {
                   ),
                 ),
                 title: Text(
-                  widget.parentState.student.name, // Changed to use Dummy Student
+                  'The Boys', // Minor change
                   style: TextStyle(
                   color: textColor,
                   fontSize: 18,
@@ -143,7 +143,7 @@ class _HamburgerMenuState extends State<HamburgerMenu> {
                   ),
                 ),
                 subtitle: Text(
-                  widget.parentState.student.email, //Changed to use Dummy Student
+                  "the.boys@strathmore.edu",
                   style: TextStyle(
                   color: textColor.withOpacity(0.7),
                   fontSize: 13,

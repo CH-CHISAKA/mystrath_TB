@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 // import 'package:mystrath/views/authentications_screen/authentication_screen.dart';
-import 'package:mystrath/views/home_screen/main_home_screen.dart';
+import 'package:mystrath/views/home_screen/mian_home_screen.dart';
 import 'package:mystrath/views/themes/theme_toggle.dart';
 import 'package:provider/provider.dart';
 

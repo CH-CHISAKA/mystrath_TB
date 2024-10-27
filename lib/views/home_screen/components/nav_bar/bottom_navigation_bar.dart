@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:mystrath/views/home_screen/main_home_screen.dart';
+import 'package:mystrath/views/home_screen/mian_home_screen.dart';
 
 class BottomNavigation extends StatefulWidget {
-  final MainHomeScreenState parentState;
-  const BottomNavigation({super.key, required this.parentState});
+  MainHomeScreenState parentState;
+  BottomNavigation({super.key, required this.parentState});
 
   @override
   State<BottomNavigation> createState() => _BottomNavigationState();
