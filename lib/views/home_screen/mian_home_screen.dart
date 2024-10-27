@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:mystrath/views/attendance_screen/attendance_screen.dart';
+import 'package:mystrath/views/home_screen/components/banner_widget_carousel/banner_widget_carousel.dart';
 import 'package:mystrath/views/home_screen/components/nav_bar/bottom_navigation_bar.dart';
 import 'package:mystrath/views/themes/theme_toggle.dart';
 import 'package:provider/provider.dart';
@@ -25,7 +25,6 @@ class MainHomeScreenState extends State<MainHomeScreen> {
     const Center(child: Text('History Screen')),
     const Center(child: Text('Help Screen')),
     const Center(child: Text('About Screen')),
-    AttendanceScreen(),
   ];
 
   late BottomNavigation bottomNavigation;

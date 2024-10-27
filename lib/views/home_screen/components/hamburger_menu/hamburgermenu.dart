@@ -187,9 +187,9 @@ class _HamburgerMenuState extends State<HamburgerMenu> {
                           iconColor,
                         ),
                         _buildAnimatedListTile(
-                          'Attendance',
-                          Icons.check_circle_rounded,
-                          () => _onMenuItemTap('Attendance', 7),
+                          'History',
+                          Icons.history,
+                          () => _onMenuItemTap('History', 4),
                           textColor,
                           iconColor,
                         ),
